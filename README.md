@@ -1,0 +1,1 @@
+Just playing around with [Mongoose](http://mongoosejs.com)
