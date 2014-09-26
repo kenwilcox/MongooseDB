@@ -40,4 +40,20 @@ db.once('open', function callback() {
     if (err) return console.error(err);
     console.log(kittens);
   });
+
+  // How about just fluffy
+  Kitten.find({name: /^fluff/ }, function (err, kittens) {
+    if (err) return console.error(err);
+    if (kittens.length > 0) {
+      kitten = kittens[0];
+      kitten.speak();
+      kitten.name = "Fluffy";
+      // Hey, kitten, save yourself - lol
+      kitten.save(function (err, kitten) {
+        if (err) return console.error(err);
+        kitten.speak();
+      });
+    }
+  });
+
 });
