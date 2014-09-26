@@ -18,9 +18,26 @@ db.once('open', function callback() {
   }
 
   var Kitten = mongoose.model('Kitten', kittySchema);
-  var silence = new Kitten({name: 'Silence'});
-  console.log(silence.name);
+  // var silence = new Kitten({name: 'Silence'});
+  // console.log(silence.name);
 
-  var fluffy = new Kitten({name: 'fluffy'});
-  fluffy.speak();
+  // var fluffy = new Kitten({name: 'fluffy'});
+  // fluffy.speak();
+
+  // // Lets save these kittens - lol
+  // fluffy.save(function (err, fluffy) {
+  //   if (err) return console.error(err);
+  //   fluffy.speak();
+  // });
+  
+  // // Silly that the DAL is on the object
+  // silence.save(function (err, silence) {
+  //   if (err) console.err(err);
+  //   silence.speak();
+  // });
+
+  Kitten.find(function (err, kittens) {
+    if (err) return console.error(err);
+    console.log(kittens);
+  });
 });
